@@ -2,11 +2,11 @@ const nodemailer = require('nodemailer');
 const santaService = require('../services/santa.service');
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.ethereal.email',
+  host: process.env.SMTP_MAIL || 'smtp.ethereal.email',
   port: 587,
   auth: {
-    user: 'jalen.cassin@ethereal.email',
-    pass: '9r6wbhaypsbjbTd13D',
+    user: process.env.EMAIL_USER || 'jalen.cassin@ethereal.email',
+    pass: process.env.EMAIL_PASSWORD || '9r6wbhaypsbjbTd13D',
   },
 });
 

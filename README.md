@@ -1,17 +1,34 @@
-# IMPORTANT! READ before starting
+# README - Documentation
 
-By default for anonymous users (non logged in), your code and app will only remain on glitch.com for 5 days.
-In order to not lose your challenge, please create a glitch.com account and log in to glitch.com before proceeding.
+# A Letter to Santa 🎅
 
-The following README contains instructions to guide you through the coding challenge, please read them carefully.
+This is a simple web application allows _registered_ children to send messages to Santa. I made this to match the specifications, and make it simple no overengineering.
 
-# JS coding challenge:
+- [App](https://sphenoid-coral-coelurus.glitch.me/)
+- [Coverage](https://sphenoid-coral-coelurus.glitch.me/coverage)
 
-## How to create and submit your app using glitch
+## Prerequisites & Dependencies:
+
+- Node.js (v16 or later)
+- npm (v8 or later)
+- Modern browser (Chrome, chromium, firefox)
+- Ethereal email [https://ethereal.email/](https://ethereal.email/), username password given in the `.env.example`
+
+### npm packages added
+
+- nodemailer: to send the email
+- jest: testing module
+- uuid: generate uid for the message sent to santa
+
+and updates all the package version
+
+## Installation & Usage
+
+### Via Glitch
 
 1. **Login to glitch**: make sure you are logged in to glitch.com
 
-2. **Clone**: Go to this URL: https://glitch.com/~js-santa-app and click the `Remix your own` button to clone the code. This will copy all the code to a new, randomly generated URL (e.g. https://glitch.com/edit/#!/capable-toothpaste). This is your URL to code on, no other candidates will have this URL.
+2. **Clone**: Go to this URL: https://glitch.com/~js-santa-app and click the `Remix your own` button to clone the code. This will copy all the code to a new, randomly generated URL (e.g. https://glitch.com/edit/#!/capable-toothpaste).
 
 3. **Code**: You can edit the code directly in the Glitch editor or use your editor of choice (VSCode, Sublime, etc) and copy paste the files into Glitch. Git import and export is also available in the Tools menu on the bottom left. How you edit the code is entirely up to you, so long as your finished work is viewable at the URL created in the previous step.
 
@@ -19,29 +36,98 @@ The following README contains instructions to guide you through the coding chall
 
 4. **Turn in**: When you finish coding, send your URL to us so we can review your code.
 
-## Objectives overview:
+### Direct from github
 
-The webapp should display a form for children to enter their id and a free text message to santa.
+1. Clone the repository:
 
-When submitting the form, the server should check:
+```bash
+  git clone git@github.com:icanq/santa-apps.git
+```
 
-1.  that the child is registered
-2.  that the child is less than 10 years old.
-    To this purpose, the server can fetch user and profiles data in JSON format from:
+2. Install dependencies
 
-- https://raw.githubusercontent.com/alj-devops/santa-data/master/userProfiles.json
-- https://raw.githubusercontent.com/alj-devops/santa-data/master/users.json
+```
+npm install
+```
 
-If the child is not registered (no match for the user id) or more than 10years old, the webapp should display a basic error page with an error message explaining the problem.\
-If the child is registered and less than 10 years old, the server should show a page indicating that the request has been received.
+### Configuration
 
-Every 15seconds, the server should send an email with information on all pending (not yet sent) requests including:
+1. create `.env` you can paste from the `.env.example`
 
-- child username (eg. charlie.brown)
-- child's address (eg. 219-1130, Ikanikeisaiganaibaai, Musashino-shi, Tokyo)
-- request free text as was input in the form
+### Running the Application
 
-Email sender should be set as do_not_reply@northpole.com, and sent to santa@northpole.com
+#### Development Mode
+
+Start both client and server
+
+```
+npm run start
+```
+
+Server only
+
+```
+npm run start:server
+```
+
+Client only
+
+```
+npm run start:client
+```
+
+#### Production Mode
+
+Build the client:
+
+```
+npm run build
+```
+
+Since server written using JS we don't need to build it.
+
+#### Tests
+
+Run tests with
+
+```
+npm run test
+```
+
+Generate coverage
+
+```
+npm run test:coverage
+```
+
+To simply access the coverage we can see in
+
+[https://sphenoid-coral-coelurus.glitch.me/coverage/](https://sphenoid-coral-coelurus.glitch.me/coverage/)
+
+## API Endpoints Overview
+
+- `GET /api/health`: To check if the server health (run check)
+- `GET /api/santa/pending`: Retrieve all pending requests to santa
+- `POST /api/santa/request`: Send Message to santa
+
+## Deployment
+
+This app is already compatible with`glitch.com`. to deploy just follow simple steps:
+
+1. **Login to glitch**: make sure you are logged in to glitch.com
+
+2. **Clone**: Go to this URL: [https://glitch.com/~sphenoid-coral-coelurus](https://glitch.com/~sphenoid-coral-coelurus) and click the `Remix your own` button to clone the code. This will copy all the code to a new, randomly generated URL (e.g. https://glitch.com/edit/#!/capable-toothpaste).
+
+## Features
+
+Features:
+
+1. Child wishes form
+2. Child register validation
+3. Message validation
+4. Age Validation
+5. Error Handling
+6. Request Confirmation
 
 ## Tips and detailed instructions:
 
@@ -65,3 +151,7 @@ Email sender should be set as do_not_reply@northpole.com, and sent to santa@nort
 
 Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
 When your app is running, you can access logs and console using the "Tools" button at the bottom left.
+
+## Notes
+
+The client and server are running parallel using `concurrently`. somehow, everytime glitch run it will choose the first port that run. And this will make the hot reload in vite not working correctly, but it's working fine in local environment, idk how to fix this since the time is very limited.
