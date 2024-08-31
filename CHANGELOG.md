@@ -7,7 +7,8 @@
 - refactor client, using context and reducer for state management
 - reorganize component organization and files organization structure
 - create hooks for fetch the api
-- ading devDependencies `@testing-library/react` and `@testing-library/jest-dom`
+- using rtk query instead of context
+- ading devDependencies `@testing-library/react` and `@testing-library/jest-dom`, setup tests
 - create unit test for the client start with the root (App.tsx)
 
 ### 0.0.1 (2024-08-29)
