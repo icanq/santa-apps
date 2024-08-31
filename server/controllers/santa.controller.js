@@ -1,15 +1,17 @@
-const santaService = require('../services/santa.service')
+const santaService = require('../services/santa.service');
 
 const submitRequest = async (req, res) => {
   try {
     const { name, message } = req.body;
-    
+
     if (!name || !message) {
       return res.status(400).json({
-        errors: [{ status: '400', title: 'Bad Request', message: "Name or Message are required" }]
-      })
+        status: '400',
+        title: 'Bad Request',
+        message: 'Name or Message are required',
+      });
     }
-    
+
     const result = await santaService.addRequest(name, message);
 
     if (result.isValid) {
@@ -18,14 +20,14 @@ const submitRequest = async (req, res) => {
         message: result.message,
       });
     } else {
-      res.status(400).json({
-        errors: [{ status: '400', title: 'Bad Request', message: result.error }],
-      });
+      res
+        .status(400)
+        .json({ status: '400', title: 'Bad Request', message: result.error });
     }
   } catch (error) {
-    res.status(500).json({
-      errors: [{ status: '500', title: 'Server Error', message: error.message }],
-    });
+    res
+      .status(500)
+      .json({ status: '500', title: 'Server Error', message: error.message });
   }
 };
 
@@ -49,15 +51,11 @@ const getPendingRequests = async (req, res) => {
   } catch (error) {
     res
       .status(500)
-      .json({
-        errors: [
-          { status: '500', title: 'Server Error', message: error.message },
-        ],
-      });
+      .json({ status: '500', title: 'Server Error', message: error.message });
   }
 };
 
 module.exports = {
   submitRequest,
-  getPendingRequests
-}
+  getPendingRequests,
+};
