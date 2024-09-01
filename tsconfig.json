@@ -18,6 +18,6 @@
     "types": ["node", "vite/client"],
     "composite": true
   },
-  "include": ["client", "vite.config.ts", "vite/client"],
+  "include": ["client", "vite.config.ts", "vite/client", "**/*.ts", "**/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
