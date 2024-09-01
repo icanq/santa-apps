@@ -4,6 +4,9 @@
 
 This is a simple web application allows _registered_ children to send messages to Santa. I made this to match the specifications, and make it simple no overengineering.
 
+  <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/eb7b62bf012f4b3990ee08f413c2dd98-bf605c356ecaaf2f-full-play.gif" href="https://www.loom.com/embed/eb7b62bf012f4b3990ee08f413c2dd98?sid=133683af-c827-4bde-828f-d01af0922831">
+  
+- [Demo](https://www.loom.com/embed/eb7b62bf012f4b3990ee08f413c2dd98?sid=133683af-c827-4bde-828f-d01af0922831)
 - [App](https://sphenoid-coral-coelurus.glitch.me/)
 - [Coverage](https://sphenoid-coral-coelurus.glitch.me/coverage)
 
