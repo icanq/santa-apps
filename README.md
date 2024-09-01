@@ -167,7 +167,7 @@ npm run test:coverage
 
 To simply access the coverage we can see in
 
-[https://sphenoid-coral-coelurus.glitch.me/coverage/](https://sphenoid-coral-coelurus.glitch.me/coverage/)
+[https://candied-gray-marble.glitch.me/coverage/](https://candied-gray-marble.glitch.me/coverage/)
 
 ## 4. Architecture
 
