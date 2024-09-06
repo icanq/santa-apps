@@ -282,3 +282,4 @@ This app is already compatible with`glitch.com`. to deploy just follow simple st
 ## Notes
 
 The client and server are running parallel using `concurrently`. somehow, everytime glitch run it will choose the first port that run. And this will make the hot reload in vite not working correctly, but it's working fine in local environment, idk how to fix this since the time is very limited.
+i notice that user `bugs.bunny` birthdate format is different, i turn it into YYYY/mm/dd format.
