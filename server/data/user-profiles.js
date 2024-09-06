@@ -13,7 +13,7 @@ const userProfiles = [
   {
     userUid: '730b0804-72c7-11e9-a923-1681be663d3e',
     address: '292-1082, Yodacho, Obihiro-shi, Hokkaido',
-    birthdate: '2010/23/01',
+    birthdate: '2010/01/23',
   },
 ];
 
